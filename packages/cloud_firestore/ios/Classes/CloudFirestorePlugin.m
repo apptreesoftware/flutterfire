@@ -736,16 +736,16 @@ const UInt8 DOCUMENT_ID = 139;
   } else if ([@"Firestore#settings" isEqualToString:call.method]) {
     FIRFirestoreSettings *settings = [[FIRFirestoreSettings alloc] init];
     if (![call.arguments[@"persistenceEnabled"] isEqual:[NSNull null]]) {
-      settings.persistenceEnabled = (bool)call.arguments[@"persistenceEnabled"];
+        settings.persistenceEnabled = [call.arguments[@"persistenceEnabled"] boolValue];
     }
     if (![call.arguments[@"host"] isEqual:[NSNull null]]) {
       settings.host = (NSString *)call.arguments[@"host"];
     }
     if (![call.arguments[@"sslEnabled"] isEqual:[NSNull null]]) {
-      settings.sslEnabled = (bool)call.arguments[@"sslEnabled"];
+        settings.sslEnabled = [call.arguments[@"sslEnabled"] boolValue];
     }
     if (![call.arguments[@"timestampsInSnapshotsEnabled"] isEqual:[NSNull null]]) {
-      settings.timestampsInSnapshotsEnabled = (bool)call.arguments[@"timestampsInSnapshotsEnabled"];
+        settings.timestampsInSnapshotsEnabled = [call.arguments[@"timestampsInSnapshotsEnabled"] boolValue];
     }
     if (![call.arguments[@"cacheSizeBytes"] isEqual:[NSNull null]]) {
       settings.cacheSizeBytes = ((NSNumber *)call.arguments[@"cacheSizeBytes"]).intValue;
